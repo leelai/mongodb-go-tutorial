@@ -5,7 +5,6 @@ I added mod for package managment and cloud mongodb for testing.
 
 ```
 $ go mod init example.com/hello-mongodb
-
 ```
 
 ## Reference
