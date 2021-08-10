@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"log"
 
+	"example.com/hello-mongodb/db"
 	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
@@ -16,25 +16,9 @@ type Trainer struct {
 	City string
 }
 
+var client = db.Dbconnect()
+
 func main() {
-
-	// Set client options
-	clientOptions := options.Client().ApplyURI("mongodb+srv://leelai:james67210@cluster0.ch5ms.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-
-	// Connect to MongoDB
-	client, err := mongo.Connect(context.TODO(), clientOptions)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	// Check the connection
-	err = client.Ping(context.TODO(), nil)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	fmt.Println("Connected to MongoDB!")
-
 	// Get a handle for your collection
 	collection := client.Database("test").Collection("trainers")
 
