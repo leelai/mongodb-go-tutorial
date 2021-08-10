@@ -19,7 +19,7 @@ type Trainer struct {
 func main() {
 
 	// Set client options
-	clientOptions := options.Client().ApplyURI("mongodb://localhost:27017")
+	clientOptions := options.Client().ApplyURI("mongodb+srv://leelai:james67210@cluster0.ch5ms.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 
 	// Connect to MongoDB
 	client, err := mongo.Connect(context.TODO(), clientOptions)
