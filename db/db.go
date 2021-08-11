@@ -12,10 +12,11 @@ import (
 var client *mongo.Client
 
 // Dbconnect -> connects mongo
-func Dbconnect() *mongo.Client {
+func Dbconnect(url string) *mongo.Client {
 	// Set client options
-	clientOptions := options.Client().ApplyURI("mongodb+srv://leelai:james67210@cluster0.ch5ms.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-	client, err := mongo.Connect(context.TODO(), clientOptions)
+	var err error
+	clientOptions := options.Client().ApplyURI(url)
+	client, err = mongo.Connect(context.TODO(), clientOptions)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -25,5 +26,9 @@ func Dbconnect() *mongo.Client {
 		log.Fatal(err)
 	}
 	fmt.Print("Connected to Database")
+	return client
+}
+
+func DBClient() *mongo.Client {
 	return client
 }

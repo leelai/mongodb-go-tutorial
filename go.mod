@@ -3,6 +3,7 @@ module example.com/hello-mongodb
 go 1.16
 
 require (
+	github.com/caarlos0/env/v6 v6.6.2
 	github.com/go-stack/stack v1.8.0 // indirect
 	github.com/golang/snappy v0.0.1 // indirect
 	github.com/google/go-cmp v0.5.6 // indirect

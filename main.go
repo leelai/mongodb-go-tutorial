@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 
+	"example.com/hello-mongodb/config"
 	"example.com/hello-mongodb/db"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -16,9 +17,9 @@ type Trainer struct {
 	City string
 }
 
-var client = db.Dbconnect()
-
 func main() {
+	config.Initial()
+	client := db.DBClient()
 	// Get a handle for your collection
 	collection := client.Database("test").Collection("trainers")
 
